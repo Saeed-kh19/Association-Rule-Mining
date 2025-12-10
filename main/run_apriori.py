@@ -11,7 +11,7 @@ te_array = te.fit(basket_df['Basket']).transform(basket_df['Basket'])
 df_encoded = pd.DataFrame(te_array, columns=te.columns_)
 
 # Applying Apriori algorithm to find frequent itemsets
-frequent_itemsets = apriori(df_encoded, min_support=0.05, use_colnames=True)
+frequent_itemsets = apriori(df_encoded, min_support=0.02, use_colnames=True)
 
 # Generating association rules from frequent itemsets
 rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.3)
@@ -35,7 +35,7 @@ for idx, row in top_rules.iterrows():
     
     
 print("\nThreshold Explanation:")
-print("used min_support = 0.05 to focus on itemsets appearing in aata least 5% of the transactions. ")
+print("used min_support = 0.02 to focus on itemsets appearing in at least 5% of the transactions. ")
 print("used min_confidence = 0.3 to ensure rules are reliable and not spurious. \n")
 
 top_rules = rules_filtered.head(10).copy()
@@ -46,18 +46,18 @@ print("Top 10 Association Rules: ")
 print(top_rules[['Antecedent','Consequent','support','confidence','lift']].to_string(index=False))
 
 plt.figure(figsize=(10,6))
-sns.scatterplot(
+scatter = sns.scatterplot(
     data=rules_filtered,
     x='support',
     y='confidence',
     hue='lift',
-    pallete='viridis',
+    palette='viridis',
     edgecolor='black'
 )
 
 plt.title('Association Rules: Support vs. Confidence')
 plt.xlabel('Support')
 plt.ylabel('Confidence')
-plt.legend(title='Lift', loc='upper right')
+plt.colorbar(scatter.collections[0], label='Lift')
 plt.tight_layout()
 plt.show()
