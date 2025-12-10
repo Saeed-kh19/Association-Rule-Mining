@@ -31,4 +31,7 @@ import eda_timeseries
 print(Fore.BLUE + "Step 10: Running Apriori algorithm")
 import run_apriori
 
+print(Fore.BLUE + "Step 11: Running Time Series Forecasting")
+import run_timeseries
+
 print(Fore.BLUE + Style.BRIGHT + "\nAll steps executed successfully!")
