@@ -34,4 +34,7 @@ import run_apriori
 print(Fore.BLUE + "Step 11: Running Time Series Forecasting")
 import run_timeseries
 
+print(Fore.BLUE + "Step 12: Running 14-Day Forecast")
+import run_forecast
+
 print(Fore.BLUE + Style.BRIGHT + "\nAll steps executed successfully!")
