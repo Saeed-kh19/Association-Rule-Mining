@@ -37,4 +37,11 @@ import run_timeseries
 print(Fore.BLUE + "Step 12: Running 14-Day Forecast")
 import run_forecast
 
+print(Fore.BLUE + "Step 13: Comparing Time Series Models")
+import run_compare_models
+
+print(Fore.BLUE + "Step 14: Performing Seasonal Decomposition")
+import run_decomposition
+
+
 print(Fore.BLUE + Style.BRIGHT + "\nAll steps executed successfully!")
